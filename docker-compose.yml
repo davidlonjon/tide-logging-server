@@ -9,7 +9,7 @@ services:
             - ./logs/mongo:/srv/logs/mongo
             - ./data/mongo:/data/db
         networks:
-            - tide-network-back
+            - tide-network-backend
     tide-graylog-elasticsearch:
         image: 'elasticsearch:2'
         command: 'elasticsearch -Des.cluster.name="graylog"'
@@ -19,7 +19,7 @@ services:
             - ./logs/elasticsearch:/srv/logs/elasticsearch
             - ./data/elasticsearch:/usr/share/elasticsearch/data
         networks:
-            - tide-network-back
+            - tide-network-backend
     tide-graylog:
         image: graylog2/server:2.1.1-1
         container_name: tide_graylog_server
@@ -40,7 +40,7 @@ services:
             - '12201/udp:12201/udp'
             - '1514/udp:1514/udp'
         networks:
-            - tide-network-back
+            - tide-network-backend
 networks:
-    tide-network-back:
+    tide-network-backend:
         driver: bridge
