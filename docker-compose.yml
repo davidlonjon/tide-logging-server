@@ -1,0 +1,46 @@
+version: '2'
+
+services:
+    tide-graylog-mongo:
+        image: 'mongo:3'
+        container_name: tide_graylog_mongo
+        hostname: tide_graylog_mongo
+        volumes:
+            - ./logs/mongo:/srv/logs/mongo
+            - ./data/mongo:/data/db
+        networks:
+            - tide-network-back
+    tide-graylog-elasticsearch:
+        image: 'elasticsearch:2'
+        command: 'elasticsearch -Des.cluster.name="graylog"'
+        container_name: tide_graylog_elasticsearch
+        hostname: tide_graylog_elasticsearch
+        volumes:
+            - ./logs/elasticsearch:/srv/logs/elasticsearch
+            - ./data/elasticsearch:/usr/share/elasticsearch/data
+        networks:
+            - tide-network-back
+    tide-graylog:
+        image: graylog2/server:2.1.1-1
+        container_name: tide_graylog_server
+        hostname: tide_graylog_server
+        volumes:
+              - ./logs/graylog:/srv/logs/graylog
+              - ./data/journal:/usr/share/graylog/data/journal
+              - ./config:/usr/share/graylog/data/config
+        environment:
+            GRAYLOG_PASSWORD_SECRET: ${GRAYLOG_PASSWORD_SECRET}
+            GRAYLOG_ROOT_PASSWORD_SHA2: ${GRAYLOG_ROOT_PASSWORD_SHA2}
+            GRAYLOG_WEB_ENDPOINT_URI: ${GRAYLOG_WEB_ENDPOINT_URI}
+        links:
+            - tide-graylog-mongo:mongo
+            - tide-graylog-elasticsearch:elasticsearch
+        ports:
+            - '9000:9000'
+            - '12201/udp:12201/udp'
+            - '1514/udp:1514/udp'
+        networks:
+            - tide-network-back
+networks:
+    tide-network-back:
+        driver: bridge

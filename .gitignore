@@ -1,0 +1,166 @@
+# IDEA Ignores #
+################
+*.iml
+*.ipr
+*.iws
+.idea/
+out/
+local.properties
+
+# Sublime Text #
+##############
+*.sublime-project
+*.sublime-workspace
+
+# Generic Android ignores #
+###########################
+target
+gen/
+
+# Built Application Files
+###########################
+*.apk
+*.ap_
+
+# Files for the dex VM
+###########################
+*.dex
+
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+############
+*.7z
+*.jar
+*.rar
+*.zip
+*.gz
+*.bzip
+*.xz
+*.lzma
+
+# Packing-only formats #
+####################
+*.iso
+*.tar
+
+# Package management formats #
+############################
+*.dmg
+*.xpi
+*.gem
+*.egg
+*.deb
+*.rpm
+
+# Logs and databases #
+######################
+log/
+*.log
+*.sql
+*.sqlite
+*.sqlite3
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+ehthumbs.db
+Icon?
+Thumbs.db
+Desktop.ini
+._*
+
+# Files that might appear on external disk #
+###################################
+.Spotlight-V100
+.Trashes
+
+# VCS #
+#######
+.git/
+.hg/
+.svn
+.svn/
+CVS/
+
+# Temp folders
+tmp/
+
+# NPM #
+#######
+.npmignore
+
+# Always-ignore extensions #
+########################
+*~
+*.diff
+*.err
+*.log
+*.orig
+*.rej
+*.vi
+*.swp
+*.tmp
+
+# Python #
+#########
+*.pyc
+
+# Sass #
+#######
+*.sass-cache
+
+# Ctags #
+########
+.tags
+.tags_sorted_by_file
+.gemtags
+
+# Vagrant #
+##########
+.vagrant
+
+# XCode 5 #
+###########
+*.xcuserstate
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+xcuserdata/
+*.xccheckout
+*.moved-aside
+DerivedData
+!default.pbxuser
+!default.mode1v3
+!default.mode2v3
+!default.perspectivev3
+
+# Ansible
+*.retry
+
+# Logs
+/logs/*
+!/logs/.gitkeep
+
+# Data
+/data/*
+!/data/.gitkeep
+
+/run
+/tmp
+
+# Docker env file
+.env
+
+# Graylog node id
+config/node-id
+
