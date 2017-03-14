@@ -36,7 +36,7 @@ Launch the Graylog2 server using the docker compose command
 $ docker-compose up -d
 ```
 
-Now you should be able to access the admin console of the Graylog2 server at [http://localhost:9000/api](http://localhost:9000/api)
+Now you should be able to access the admin console of the Graylog2 server at [http://localhost:9000/api](http://localhost:9000/api). To login use `admin` as the username.
 
 To interact with the Graylog2 server to send log events to it using PHP for example, you will be able to do it using your host machine IP on port `12201` as the graylog IP address and port.
 
